@@ -1,13 +1,13 @@
 "use client"
 
-import { useState, useEffect, useMemo } from "react"
-import { codeLines } from "@/lib/landing-data"
+import { useState, useEffect, useMemo, useCallback } from "react"
+import { codeLines as defaultCodeLines } from "@/lib/landing-data"
 
 const TYPING_SPEED = 30
 const LINE_DELAY = 200
 const INITIAL_DELAY = 500
 
-type TokenType = "keyword" | "string" | "identifier" | "bracket" | "text"
+type TokenType = "keyword" | "string" | "identifier" | "bracket" | "comment" | "text"
 
 interface Token {
   type: TokenType
@@ -16,7 +16,12 @@ interface Token {
 
 function tokenize(line: string): Token[] {
   const tokens: Token[] = []
-  const regex = /(import|from|const|await|new)|('.*?')|(NexusAI|process|env)|([\{\}\(\)\[\]])|([^\s'{}()\[\]]+|\s+)/g
+
+  if (line.startsWith("//") || line.startsWith("#")) {
+    return [{ type: "comment", value: line }]
+  }
+
+  const regex = /(import|from|const|await|new|export)|('.*?'|".*?")|(\bNexusAI\b|\bOpenAI\b|\bprocess\b|\benv\b|\bclient\b)|([{}()[\]])|([^\s'"{}()[\]]+|\s+)/g
   let match
 
   while ((match = regex.exec(line)) !== null) {
@@ -35,6 +40,7 @@ const tokenStyles: Record<TokenType, string> = {
   string: "text-green-500 dark:text-green-400",
   identifier: "text-blue-500 dark:text-blue-400",
   bracket: "text-zinc-400",
+  comment: "text-zinc-500 dark:text-zinc-500 italic",
   text: "",
 }
 
@@ -52,16 +58,34 @@ function HighlightedLine({ text }: { text: string }) {
   )
 }
 
-export function CodeWindow() {
+interface CodeWindowProps {
+  codeLines?: string[]
+  filename?: string
+  resetKey?: string | number
+}
+
+export function CodeWindow({
+  codeLines = defaultCodeLines,
+  filename = "index.ts",
+  resetKey = "default"
+}: CodeWindowProps) {
   const [displayedLines, setDisplayedLines] = useState<string[]>([])
   const [currentLineIndex, setCurrentLineIndex] = useState(0)
   const [currentCharIndex, setCurrentCharIndex] = useState(0)
   const [isTyping, setIsTyping] = useState(false)
 
+  const resetAnimation = useCallback(() => {
+    setDisplayedLines([])
+    setCurrentLineIndex(0)
+    setCurrentCharIndex(0)
+    setIsTyping(false)
+  }, [])
+
   useEffect(() => {
+    resetAnimation()
     const timer = setTimeout(() => setIsTyping(true), INITIAL_DELAY)
     return () => clearTimeout(timer)
-  }, [])
+  }, [resetKey, codeLines, resetAnimation])
 
   useEffect(() => {
     if (!isTyping) return
@@ -80,7 +104,7 @@ export function CodeWindow() {
         setCurrentCharIndex((prev) => prev + 1)
       }, TYPING_SPEED)
       return () => clearTimeout(timer)
-    } else {
+    } else if (currentLineIndex < codeLines.length - 1) {
       const timer = setTimeout(() => {
         setCurrentLineIndex((prev) => prev + 1)
         setCurrentCharIndex(0)
@@ -88,7 +112,7 @@ export function CodeWindow() {
       }, LINE_DELAY)
       return () => clearTimeout(timer)
     }
-  }, [isTyping, currentLineIndex, currentCharIndex])
+  }, [isTyping, currentLineIndex, currentCharIndex, codeLines])
 
   return (
     <div className="w-full max-w-2xl mx-auto">
@@ -100,7 +124,7 @@ export function CodeWindow() {
             <div className="w-3 h-3 rounded-full bg-green-500" />
           </div>
           <span className="ml-2 text-sm text-zinc-500 dark:text-zinc-400 font-mono">
-            index.ts
+            {filename}
           </span>
         </div>
         <div className="bg-zinc-50 dark:bg-zinc-950 p-4 font-mono text-sm leading-relaxed min-h-[280px]">

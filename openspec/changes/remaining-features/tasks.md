@@ -74,6 +74,7 @@
 npx shadcn@latest add tabs -y
 ```
 **验证**: `src/components/ui/tabs.tsx` 存在
+**状态**: [x] 完成
 
 ### Task 6.2: 更新代码示例数据
 **文件**: `src/lib/landing-data.ts`
@@ -82,6 +83,7 @@ npx shadcn@latest add tabs -y
 - 添加 Codex 代码示例
 - 导出 modelTabs 数据
 **验证**: 数据导出正确
+**状态**: [x] 完成
 
 ### Task 6.3: 更新 CodeWindow 组件
 **文件**: `src/components/landing/code-window.tsx`
@@ -90,6 +92,7 @@ npx shadcn@latest add tabs -y
 - 支持动态切换代码内容
 - 切换时重置打字机动画
 **验证**: 组件支持动态代码
+**状态**: [x] 完成
 
 ### Task 6.4: 更新 Hero 组件
 **文件**: `src/components/landing/hero.tsx`
@@ -98,6 +101,7 @@ npx shadcn@latest add tabs -y
 - Tab 切换时更新 CodeWindow
 - 平滑过渡动画
 **验证**: Tab 切换正常工作
+**状态**: [x] 完成
 
 ---
 
@@ -333,10 +337,10 @@ Phase 11 (Billing) ← depends on Phase 8
 - [x] Footer 链接更新
 
 ### Phase 6
-- [ ] Tabs 组件安装
-- [ ] Hero Tab 切换正常
-- [ ] 代码窗口内容切换
-- [ ] 打字机动画重置
+- [x] Tabs 组件安装
+- [x] Hero Tab 切换正常
+- [x] 代码窗口内容切换
+- [x] 打字机动画重置
 
 ### Phase 7
 - [ ] Docs 布局创建

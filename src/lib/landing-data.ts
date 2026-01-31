@@ -25,6 +25,74 @@ export const codeLines = [
   "});",
 ]
 
+export const modelTabs = [
+  {
+    id: "nexusai",
+    label: "NexusAI SDK",
+    filename: "index.ts",
+    codeLines: [
+      "import { NexusAI } from 'nexusai';",
+      "",
+      "const client = new NexusAI({",
+      "  apiKey: process.env.NEXUSAI_KEY",
+      "});",
+      "",
+      "const response = await client.chat({",
+      "  model: 'claude-3-opus',",
+      "  messages: [{ role: 'user', content: 'Hello!' }]",
+      "});",
+    ],
+  },
+  {
+    id: "claude",
+    label: "Claude Code",
+    filename: "claude.ts",
+    codeLines: [
+      "// Use NexusAI as Claude Code backend",
+      "export ANTHROPIC_BASE_URL=https://api.nexusai.dev",
+      "export ANTHROPIC_API_KEY=your_nexusai_key",
+      "",
+      "// Then run Claude Code normally",
+      "claude --model claude-sonnet-4",
+      "",
+      "// All requests route through NexusAI",
+    ],
+  },
+  {
+    id: "codex",
+    label: "Codex CLI",
+    filename: "codex.sh",
+    codeLines: [
+      "# Configure Codex to use NexusAI",
+      "export OPENAI_BASE_URL=https://api.nexusai.dev/v1",
+      "export OPENAI_API_KEY=your_nexusai_key",
+      "",
+      "# Run Codex with any supported model",
+      "codex --model gpt-4o",
+      "",
+      "# Seamless multi-model access",
+    ],
+  },
+  {
+    id: "openai",
+    label: "OpenAI SDK",
+    filename: "openai.ts",
+    codeLines: [
+      "import OpenAI from 'openai';",
+      "",
+      "const client = new OpenAI({",
+      "  baseURL: 'https://api.nexusai.dev/v1',",
+      "  apiKey: process.env.NEXUSAI_KEY",
+      "});",
+      "",
+      "const response = await client.chat.completions.create({",
+      "  model: 'gpt-4o',",
+      "  messages: [{ role: 'user', content: 'Hello!' }]",
+      "});",
+    ],
+  },
+]
+
 export const features = [
   {
     icon: Zap,

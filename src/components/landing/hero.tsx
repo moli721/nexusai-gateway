@@ -1,13 +1,18 @@
 "use client"
 
+import { useState } from "react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { CodeWindow } from "./code-window"
-import { brand } from "@/lib/landing-data"
+import { brand, modelTabs } from "@/lib/landing-data"
 import { ArrowRight, Sparkles } from "lucide-react"
 import { AnimateOnScroll } from "@/components/animate-on-scroll"
 
 export function Hero() {
+  const [activeTab, setActiveTab] = useState(modelTabs[0].id)
+  const activeModel = modelTabs.find((tab) => tab.id === activeTab) || modelTabs[0]
+
   return (
     <section className="relative pt-24 pb-20 px-4 overflow-hidden">
       <div className="absolute inset-0 -z-10">
@@ -57,7 +62,22 @@ export function Hero() {
         </AnimateOnScroll>
 
         <AnimateOnScroll variant="scale" delay={500} duration={700}>
-          <CodeWindow />
+          <div className="space-y-4">
+            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+              <TabsList className="mx-auto">
+                {modelTabs.map((tab) => (
+                  <TabsTrigger key={tab.id} value={tab.id}>
+                    {tab.label}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </Tabs>
+            <CodeWindow
+              codeLines={activeModel.codeLines}
+              filename={activeModel.filename}
+              resetKey={activeTab}
+            />
+          </div>
         </AnimateOnScroll>
       </div>
     </section>
