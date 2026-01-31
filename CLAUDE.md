@@ -1,0 +1,40 @@
+# NexusAI Gateway
+
+## 项目概述
+NexusAI 是一个专业的 AI API 网关 Landing Page，提供统一访问 Claude、GPT、Gemini 等模型的能力。
+
+## 技术栈
+- Next.js 15 (App Router)
+- Tailwind CSS v4
+- shadcn/ui (new-york style)
+- Prisma + SQLite
+- LinuxDo OAuth 认证
+
+## 当前进度
+
+### 已完成
+- [x] Phase 1-4: 基础 Landing Page（Hero、Features、Pricing、FAQ、Footer）
+- [x] Phase 5: Legal & Static Pages
+  - `src/components/legal/legal-layout.tsx` - 法律页面布局
+  - `src/app/legal/privacy-policy/page.tsx` - 隐私政策
+  - `src/app/legal/terms-of-service/page.tsx` - 服务条款
+  - `src/app/about/page.tsx` - 关于页面
+  - `src/app/contact/page.tsx` - 联系页面
+  - Footer 链接已更新
+
+### 待完成
+- [ ] Phase 6: Hero Enhancement (Tabs + 多模型代码示例)
+- [ ] Phase 7: Documentation (Docs 布局 + 页面)
+- [ ] Phase 8: Database Extension (Prisma Schema 扩展)
+- [ ] Phase 9: Dashboard - API Key Management
+- [ ] Phase 10: Dashboard - Usage Analytics
+- [ ] Phase 11: Dashboard - Billing
+
+## 下次继续
+运行 `/ccg:spec-impl` 开始 Phase 6: Hero Enhancement
+
+## 任务文件
+详细任务列表: `openspec/changes/remaining-features/tasks.md`
+
+## GitHub
+https://github.com/moli721/nexusai-gateway
