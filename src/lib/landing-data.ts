@@ -8,7 +8,7 @@ export const brand = {
 
 export const navLinks = [
   { label: "Pricing", href: "#pricing" },
-  { label: "Docs", href: "#" },
+  { label: "Docs", href: "/docs" },
   { label: "FAQ", href: "#faq" },
 ]
 
@@ -188,8 +188,8 @@ export const footerLinks = {
   product: [
     { label: "Features", href: "#features" },
     { label: "Pricing", href: "#pricing" },
-    { label: "Documentation", href: "#" },
-    { label: "API Reference", href: "#" },
+    { label: "Documentation", href: "/docs" },
+    { label: "API Reference", href: "/docs/api-reference" },
   ],
   company: [
     { label: "About", href: "/about" },

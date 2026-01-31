@@ -114,6 +114,7 @@ npx shadcn@latest add tabs -y
 - 响应式设计
 - 移动端折叠菜单
 **验证**: 布局正常渲染
+**状态**: [x] 完成
 
 ### Task 7.2: 创建 Docs 首页
 **文件**: `src/app/docs/page.tsx`
@@ -122,6 +123,7 @@ npx shadcn@latest add tabs -y
 - 功能概览
 - 导航到子页面
 **验证**: `/docs` 可访问
+**状态**: [x] 完成
 
 ### Task 7.3: 创建 API Reference 页面
 **文件**: `src/app/docs/api-reference/page.tsx`
@@ -130,6 +132,7 @@ npx shadcn@latest add tabs -y
 - 请求/响应示例
 - 参数说明
 **验证**: `/docs/api-reference` 可访问
+**状态**: [x] 完成
 
 ### Task 7.4: 创建 Quick Start 页面
 **文件**: `src/app/docs/quick-start/page.tsx`
@@ -138,6 +141,7 @@ npx shadcn@latest add tabs -y
 - 配置说明
 - 第一个请求示例
 **验证**: `/docs/quick-start` 可访问
+**状态**: [x] 完成
 
 ### Task 7.5: 创建代码块组件
 **文件**: `src/components/docs/code-block.tsx`
@@ -146,12 +150,14 @@ npx shadcn@latest add tabs -y
 - 复制按钮
 - 支持多语言
 **验证**: 代码块可复制
+**状态**: [x] 完成
 
 ### Task 7.6: 更新导航栏 Docs 链接
 **文件**: `src/lib/landing-data.ts`
 **要点**:
 - 更新 navLinks 中 Docs 的 href 为 `/docs`
 **验证**: 导航栏 Docs 链接正确
+**状态**: [x] 完成
 
 ---
 
@@ -343,11 +349,11 @@ Phase 11 (Billing) ← depends on Phase 8
 - [x] 打字机动画重置
 
 ### Phase 7
-- [ ] Docs 布局创建
-- [ ] Docs 首页可访问
-- [ ] API Reference 页面可访问
-- [ ] Quick Start 页面可访问
-- [ ] 代码块可复制
+- [x] Docs 布局创建
+- [x] Docs 首页可访问
+- [x] API Reference 页面可访问
+- [x] Quick Start 页面可访问
+- [x] 代码块可复制
 
 ### Phase 8
 - [ ] Prisma Schema 更新

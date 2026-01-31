@@ -26,16 +26,21 @@ NexusAI 是一个专业的 AI API 网关 Landing Page，提供统一访问 Claud
   - `src/lib/landing-data.ts` - 添加 modelTabs 多模型代码示例
   - `src/components/landing/code-window.tsx` - 支持动态代码和动画重置
   - `src/components/landing/hero.tsx` - 集成 Tabs 切换
+- [x] Phase 7: Documentation
+  - `src/components/docs/code-block.tsx` - 代码块组件（复制按钮）
+  - `src/app/docs/layout.tsx` - Docs 布局（侧边栏导航）
+  - `src/app/docs/page.tsx` - Docs 首页
+  - `src/app/docs/quick-start/page.tsx` - 快速开始指南
+  - `src/app/docs/api-reference/page.tsx` - API 参考文档
 
 ### 待完成
-- [ ] Phase 7: Documentation (Docs 布局 + 页面)
 - [ ] Phase 8: Database Extension (Prisma Schema 扩展)
 - [ ] Phase 9: Dashboard - API Key Management
 - [ ] Phase 10: Dashboard - Usage Analytics
 - [ ] Phase 11: Dashboard - Billing
 
 ## 下次继续
-运行 `/ccg:spec-impl` 开始 Phase 7: Documentation
+运行 `/ccg:spec-impl` 开始 Phase 8: Database Extension
 
 ## 任务文件
 详细任务列表: `openspec/changes/remaining-features/tasks.md`
