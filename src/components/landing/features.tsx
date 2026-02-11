@@ -109,19 +109,16 @@ function FeatureCard({
         {/* Icon */}
         <motion.div
           className={`
-            ${isLarge ? 'w-16 h-16 mb-8' : 'w-12 h-12 mb-6'}
-            rounded-2xl flex items-center justify-center relative
-            bg-gradient-to-br from-indigo-500 to-violet-600
-            shadow-lg shadow-indigo-500/25
+            ${isLarge ? 'w-14 h-14 mb-8' : 'w-11 h-11 mb-6'}
+            rounded-xl flex items-center justify-center
+            border border-white/[0.08] bg-white/[0.04]
+            group-hover:border-indigo-500/30 group-hover:bg-indigo-500/[0.08]
+            transition-all duration-500
           `}
-          whileHover={{
-            scale: 1.1,
-            boxShadow: '0 20px 40px -10px rgba(99, 102, 241, 0.4)',
-          }}
+          whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
         >
-          <Icon className={`${isLarge ? 'w-8 h-8' : 'w-6 h-6'} text-white relative z-10`} />
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-400 to-violet-500 blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500" />
+          <Icon className={`${isLarge ? 'w-7 h-7' : 'w-5 h-5'} text-indigo-400`} />
         </motion.div>
 
         {/* Content */}

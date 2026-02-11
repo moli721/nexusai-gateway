@@ -52,8 +52,8 @@ export function LandingNavbar({ user }: LandingNavbarProps) {
           {/* Logo */}
           <div className="flex items-center gap-8">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:shadow-xl group-hover:shadow-indigo-500/30 group-hover:scale-105 transition-all duration-300">
-                <span className="text-white font-bold text-sm">N</span>
+              <div className="w-8 h-8 rounded-lg border border-white/[0.12] bg-white/[0.06] flex items-center justify-center group-hover:border-indigo-500/30 group-hover:bg-indigo-500/[0.08] group-hover:scale-105 transition-all duration-300">
+                <span className="text-indigo-400 font-bold text-sm">N</span>
               </div>
               <span className="text-lg font-semibold text-white">
                 {brand.name}
