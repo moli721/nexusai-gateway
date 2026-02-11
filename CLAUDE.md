@@ -32,15 +32,17 @@ NexusAI 是一个专业的 AI API 网关 Landing Page，提供统一访问 Claud
   - `src/app/docs/page.tsx` - Docs 首页
   - `src/app/docs/quick-start/page.tsx` - 快速开始指南
   - `src/app/docs/api-reference/page.tsx` - API 参考文档
+- [x] Phase 8: Database Extension
+  - `prisma/schema.prisma` - 添加 ApiKey、UsageRecord、Subscription 模型
+  - `prisma/migrations/20260131131317_add_api_keys_and_usage/` - 数据库迁移
 
 ### 待完成
-- [ ] Phase 8: Database Extension (Prisma Schema 扩展)
 - [ ] Phase 9: Dashboard - API Key Management
 - [ ] Phase 10: Dashboard - Usage Analytics
 - [ ] Phase 11: Dashboard - Billing
 
 ## 下次继续
-运行 `/ccg:spec-impl` 开始 Phase 8: Database Extension
+运行 `/ccg:spec-impl` 开始 Phase 9: Dashboard - API Key Management
 
 ## 任务文件
 详细任务列表: `openspec/changes/remaining-features/tasks.md`

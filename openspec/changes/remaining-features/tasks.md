@@ -170,6 +170,7 @@ npx shadcn@latest add tabs -y
 - 添加 UsageRecord 模型
 - 添加 Subscription 模型
 **验证**: Schema 语法正确
+**状态**: [x] 完成
 
 ### Task 8.2: 运行数据库迁移
 **命令**:
@@ -178,6 +179,7 @@ npx prisma migrate dev --name add-api-keys-and-usage
 npx prisma generate
 ```
 **验证**: 迁移成功，客户端生成
+**状态**: [x] 完成
 
 ---
 
@@ -356,8 +358,8 @@ Phase 11 (Billing) ← depends on Phase 8
 - [x] 代码块可复制
 
 ### Phase 8
-- [ ] Prisma Schema 更新
-- [ ] 数据库迁移成功
+- [x] Prisma Schema 更新
+- [x] 数据库迁移成功
 
 ### Phase 9
 - [ ] API Key 列表显示
