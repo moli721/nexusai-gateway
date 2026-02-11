@@ -19,6 +19,9 @@ model User {
   active        Boolean?  @default(true)
   accounts      Account[]
   sessions      Session[]
+  apiKeys       ApiKey[]
+  usageRecords  UsageRecord[]
+  subscription  Subscription?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 }
@@ -55,4 +58,50 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model ApiKey {
+  id          String        @id @default(cuid())
+  name        String
+  keyHash     String        @unique
+  keyPrefix   String
+  userId      String
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lastUsedAt  DateTime?
+  expiresAt   DateTime?
+  createdAt   DateTime      @default(now())
+  usageRecords UsageRecord[]
+
+  @@index([userId])
+}
+
+model UsageRecord {
+  id          String   @id @default(cuid())
+  apiKeyId    String
+  apiKey      ApiKey   @relation(fields: [apiKeyId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  model       String
+  inputTokens Int
+  outputTokens Int
+  totalTokens Int
+  cost        Float    @default(0)
+  createdAt   DateTime @default(now())
+
+  @@index([userId])
+  @@index([apiKeyId])
+  @@index([createdAt])
+}
+
+model Subscription {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan        String   @default("free")
+  status      String   @default("active")
+  currentPeriodStart DateTime @default(now())
+  currentPeriodEnd   DateTime?
+  cancelAtPeriodEnd  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
