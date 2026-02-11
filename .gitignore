@@ -40,3 +40,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .ace-tool/
+
+# claude code
+.claude/
+
+# playwright mcp
+.playwright-mcp/
+
+# prisma
+prisma/dev.db-journal
